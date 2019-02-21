@@ -19,6 +19,11 @@ enable :sessions
     erb(:play)
   end
 
+  get '/attacked' do
+    @player_name_one = session[:player_name_one]
+    @player_name_two = session[:player_name_two]
+    erb(:attacked)
+  end
 
   # post '/names' do
   #   @player_name_one = params[:name_one]
