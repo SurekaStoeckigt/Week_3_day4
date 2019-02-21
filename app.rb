@@ -1,4 +1,5 @@
 require 'sinatra'
+require_relative './lib/player.rb'
 
 class Battle < Sinatra::Base
 enable :sessions
@@ -22,8 +23,12 @@ enable :sessions
   get '/attacked' do
     @player_name_one = $player_name_one.name
     @player_name_two = $player_name_two.name
+    @player_name_1 = $player_name_one
+    @player_name_2 = $player_name_two
+    @player_name_1.attack(@player_name_2)
     erb(:attacked)
   end
+
 
   # post '/names' do
   #   @player_name_one = params[:name_one]
