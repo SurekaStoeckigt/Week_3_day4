@@ -15,12 +15,12 @@ it 'returns player2s default points' do
   expect(player.hit_points).to eq Player::DEFAULT_HITPOINTS
 end
 
-it 'reduces hit points' do
-  a = player_2.hit_points
-  player_1.attack(player_2)
-  b = player_2.hit_points
-  expect(a-b).to eq 10
-end
+# it 'reduces hit points' do
+#   a = player_2.hit_points
+#   player_1.attack(player_2)
+#   b = player_2.hit_points
+#   expect(a-b).to eq 10
+# end
 
 # describe Player do
 #   subject(:dave) { Player.new('Dave') }
