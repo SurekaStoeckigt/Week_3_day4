@@ -25,6 +25,17 @@ describe Game do
 
   it 'accepts two player instances' do
     game = Game.new(player_1, player_2)
+    expect(game.players).to eq [player_1, player_2]
+  end
+
+  it 'starts with player1s turn' do
+    expect(game.current_turn).to eq player_1
+  end
+
+  it 'switches to player2' do
+    game = Game.new(player_1, player_2)
+    game.switch_turn
+    expect(game.current_turn).to eq player_2
   end
 
 end
