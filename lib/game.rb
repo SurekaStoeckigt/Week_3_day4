@@ -29,11 +29,11 @@ attr_reader :player_1, :player_2, :current_turn, :players
     # p @curent_turn
   end
 
-  private
+  # private
 
-  # def opponent_of(the_player)
-  #   @players.select { |player| player != the_player }.first
-  # end
+  def opponent_of(the_player)
+    @players.select { |player| player != the_player }.first
+  end
   # def attack(player)
   #   player.reduce_hitpoints
   # end

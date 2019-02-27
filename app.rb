@@ -31,7 +31,7 @@ class Battle < Sinatra::Base
     # @player_name_1 = @player_1.name
     # @player_name_2 = @player_2.name
     @game = $game
-    @game.attack(@game.player_2)
+    @game.attack(@game.opponent_of(@game.current_turn))
     # @game.switch_turn
     erb(:attacked)
   end

@@ -22,4 +22,13 @@ feature 'players attack and receive confirmation' do
     expect(page).to have_content "Hoju has attacked Jimmy"
   end
 
+  scenario 'player 1 hitpoint reduced by 10' do
+    sign_in_and_play
+    click_button "Attack!"
+    click_button "OK"
+    click_button "Attack!"
+    click_button "OK"
+    expect(page).to have_content "Jimmy:50HP"
+  end
+
 end
