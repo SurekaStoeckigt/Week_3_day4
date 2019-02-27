@@ -32,10 +32,14 @@ class Battle < Sinatra::Base
     # @player_name_2 = @player_2.name
     @game = $game
     @game.attack(@game.player_2)
-    @game.switch_turn
+    # @game.switch_turn
     erb(:attacked)
   end
 
+  post '/switch-turns' do
+    $game.switch_turn
+    redirect('/play')
+  end
 
   # post '/names' do
   #   @player_name_one = params[:name_one]
