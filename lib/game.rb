@@ -15,17 +15,15 @@ attr_reader :player_1, :player_2, :current_turn, :players, :name, :loser
     @players.last
   end
 
-  def attack(player)
-    player.reduce_hitpoints
-  end
+
 
   def switch_turn
-    # @current_turn = opponent_of(current_turn)
-    if @current_turn == player_1
-      @current_turn = player_2
-    else
-      @current_turn = player_1
-    end
+    @current_turn = opponent_of(current_turn)
+    # if @current_turn == player_1
+    #   @current_turn = player_2
+    # else
+    #   @current_turn = player_1
+    # end
     # p @curent_turn
   end
 
@@ -36,6 +34,7 @@ attr_reader :player_1, :player_2, :current_turn, :players, :name, :loser
   end
 
   def game_over?
+<<<<<<< HEAD
     losing_players.any?
   end
 
@@ -53,6 +52,22 @@ attr_reader :player_1, :player_2, :current_turn, :players, :name, :loser
     @players.select { |player| player != the_player }
   end
 
+=======
+	    losing_players.any?
+	  end
+
+	  def loser
+	    losing_players.first
+    end
+
+    def losing_players
+	    players.select { |player| player.hit_points <= 0 }
+	  end
+
+	  def players_who_are_not(the_player)
+	    players.select { |player| player != the_player }
+	  end
+>>>>>>> 32ba25cd28cfedf7f4555e8bb732018163ceef62
   # def attack(player)
   #   player.reduce_hitpoints
   # end

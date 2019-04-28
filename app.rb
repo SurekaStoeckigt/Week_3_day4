@@ -1,6 +1,7 @@
 require 'sinatra'
 require_relative './lib/player.rb'
 require_relative './lib/game.rb'
+require_relative './lib/attack.rb'
 
 class Battle < Sinatra::Base
   enable :sessions
@@ -26,6 +27,16 @@ class Battle < Sinatra::Base
     # erb(:play)
   end
 
+  post '/attacked' do
+    @game = $game
+    Attack.run(@game.opponent_of(@game.current_turn))
+      if $game.game_over?
+	      redirect '/game-over'
+	    else
+	      redirect '/attacked'
+	    end
+  end
+
   get '/attacked' do
     print "We are here"
     # Attack.run($game.opponent_of($game.current_turn))
@@ -49,7 +60,7 @@ class Battle < Sinatra::Base
     # @player_name_1 = @player_1.name
     # @player_name_2 = @player_2.name
     @game = $game
-    @game.attack(@game.opponent_of(@game.current_turn))
+    # @game.attack(@game.opponent_of(@game.current_turn))
     # @game.switch_turn
     erb(:attacked)
   end
@@ -59,6 +70,10 @@ class Battle < Sinatra::Base
     redirect('/play')
   end
 
+  get '/game-over' do
+    @game = $game
+    erb(:game_over)
+  end
   # post '/names' do
   #   @player_name_one = params[:name_one]
   #   @player_name_two = params[:name_two]

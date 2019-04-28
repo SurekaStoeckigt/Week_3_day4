@@ -6,6 +6,12 @@ def sign_in_and_play
 end
 
 def attack_and_confirm
+<<<<<<< HEAD
   click_button "Attack!"
   click_button "OK"
 end
+=======
+	  click_button 'Attack!'
+	  click_button 'OK'
+	end
+>>>>>>> 32ba25cd28cfedf7f4555e8bb732018163ceef62
