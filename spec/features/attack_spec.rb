@@ -9,7 +9,7 @@ feature 'players attack and receive confirmation' do
   scenario 'reduces Player2s hit points when Player1 attacks Player2'  do
     sign_in_and_play
     attack_and_confirm
-    expect(page).to have_content "Hoju:50HP"
+    expect(page).not_to have_content "Hoju:50HP"
   end
 
 
@@ -24,7 +24,7 @@ feature 'players attack and receive confirmation' do
     sign_in_and_play
     attack_and_confirm
     attack_and_confirm
-    expect(page).to have_content "Jimmy:50HP"
+    expect(page).not_to have_content "Jimmy:60HP"
   end
 
   scenario 'reduce Player 2 HP by a random amount' do

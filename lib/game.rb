@@ -15,9 +15,7 @@ attr_reader :player_1, :player_2, :current_turn, :players
     @players.last
   end
 
-  def attack(player)
-    player.reduce_hitpoints
-  end
+
 
   def switch_turn
     @current_turn = opponent_of(current_turn)
